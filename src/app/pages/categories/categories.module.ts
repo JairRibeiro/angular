@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { TooltipModule } from 'ngx-bootstrap';
 import { CategoriesRoutingModule } from './categories-routing.module';
+
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 
@@ -10,7 +11,8 @@ import { CategoryFormComponent } from './category-form/category-form.component';
   declarations: [CategoryListComponent, CategoryFormComponent],
   imports: [
     CommonModule,
-    CategoriesRoutingModule
+    CategoriesRoutingModule,    
+    TooltipModule.forRoot()
   ]
 })
 export class CategoriesModule { }
