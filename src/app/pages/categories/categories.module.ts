@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TooltipModule } from 'ngx-bootstrap';
-import { CategoriesRoutingModule } from './categories-routing.module';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { ReactiveFormsModule } from "@angular/forms";
 
+import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [CategoryListComponent, CategoryFormComponent],
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
     CategoriesRoutingModule,    
-    TooltipModule.forRoot(),
-    ModalModule.forRoot()    
+    SharedModule        
   ],
   providers: []
 })

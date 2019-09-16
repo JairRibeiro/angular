@@ -25,8 +25,14 @@
             <th class="text-center">Ações</th>
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let entry of entries">
+    <tbody class="search-results"
+    infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown()"
+    (scrolledUp)="onScrollUp()">
+        <tr *ngFor="let entry of array"> 
             <td>
                 <strong>{{entry.name}}</strong><br>
                 <small class="text-success">{{entry.date}}</small><br>
