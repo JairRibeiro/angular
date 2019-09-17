@@ -48,7 +48,9 @@ export class EntryListComponent implements OnInit {
     this.entryService.delete(this.entry.id).subscribe(
       () => {
         template.hide();
-        this.entries = this.entries.filter(element => element != this.entry);
+        //this.entries = this.entries.filter(element => element != this.entry);
+        this.array = this.array.filter(element => element != this.entry);
+        this.onScrollDown(1);
         this.toastr.success('Lançamento excluído com sucesso!');
       }, 
       error => {
@@ -71,9 +73,10 @@ export class EntryListComponent implements OnInit {
     this.addItems(startIndex, endIndex, 'unshift');
   }
 
-  onScrollDown () {
+  onScrollDown (next: number = 4) {
+    debugger;
     const start = this.sum;
-    this.sum += 4 < this.entries.length - this.sum ? 4 : this.entries.length - this.sum;
+    this.sum += next < this.entries.length - this.sum ? next : this.entries.length - this.sum;
     this.appendItems(start, this.sum);
   }
   
